@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Editar <code>src/App.js</code> y guarda to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import  { Component } from 'react';
+class Button extends Component{
+  render(){
+    console.log('ejecutando metodo render de button');
+    return(
+      <button>Enviar</button>
+    )
+  }
 }
+
+class App extends Component{
+  state = {
+    valor: 3
+  }
+  render(){
+    console.log(this.state);
+    return (
+      <div>
+        <p>Hola Mundo</p>
+        <Button></Button>
+        <button className={`${this.state.valor}`}  onClick={() => this.setState({valor:2})}>
+          Enviar en App
+        </button>
+      </div>
+    )
+  }
+}
+
 
 export default App;
